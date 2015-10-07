@@ -54,7 +54,7 @@ class RouterHelperProvider {
           let msg = 'Error routing to ' + destination + '. ' +
             (error.data || '') + '. <br/>' + (error.statusText || '') +
             ': ' + (error.status || '');
-          logger.warning(msg, [toState]);
+          logger.warn(msg, [toState]);
           $location.path(config.defaultRoute);
         }
       );
