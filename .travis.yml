@@ -1,8 +1,5 @@
 sudo: false
 language: node_js
-cache:
-  directories:
-    - node_modules
 notifications:
   email: false
 node_js:
@@ -11,6 +8,7 @@ branches:
   only:
     - master
 before_install:
+  - rm -rf node_modules
   - npm i -g npm@^2.0.0
 before_script:
   - npm prune
