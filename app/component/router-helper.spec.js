@@ -1,7 +1,7 @@
 import routerModule from './index' ;
 
 let routerHelperProvider;
-let $location, $rootScope, $state, logger, routerHelper;
+let $window, $location, $rootScope, $state, logger, routerHelper;
 
 describe('Provider: routerHelper', function() {
   beforeEach(angular.mock.module(routerModule));
@@ -13,7 +13,8 @@ describe('Provider: routerHelper', function() {
   });
 
   beforeEach(function() {
-    angular.mock.inject(function(_$location_, _$rootScope_, _$state_, _logger_, _routerHelper_) {
+    angular.mock.inject(function(_$window_, _$location_, _$rootScope_, _$state_, _logger_, _routerHelper_) {
+      $window = _$window_;
       $location = _$location_;
       $rootScope = _$rootScope_;
       $state = _$state_;
@@ -45,34 +46,23 @@ describe('Provider: routerHelper', function() {
       expect(result).to.eql({errors: 0, changes: 0});
     });
 
-    it('#configureStates() should set states and otherwise path', function() {
+    it('#configureStates(<states, otherwisePath>) should set states and otherwise path', function() {
       let states = [{
         state: 'dashboard',
         config: {
           url: '/',
           templateUrl: 'app/dashboard/dashboard.html',
           controller: 'DashboardController',
-          controllerAs: 'vm',
-          title: 'dashboard',
-          settings: {
-            nav: 1,
-            content: '<i class="fa fa-dashboard"></i> Dashboard'
-          }
+          controllerAs: 'vm'
         }
       }];
-      routerHelper.configureStates(states);
+      routerHelper.configureStates(states, '/dashboard');
       expect($state.get('dashboard')).to.contain.all.keys([
         'url',
         'templateUrl',
         'controller',
-        'controllerAs',
-        'title',
-        'settings'
+        'controllerAs'
       ]);
-    });
-
-    it('#getStatus() should return states', function() {
-      expect(routerHelper.getStates()).to.have.length(1);
     });
   });
 });

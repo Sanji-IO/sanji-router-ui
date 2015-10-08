@@ -33,11 +33,13 @@ class RouterHelperProvider {
       getStates: getStates
     };
 
+    /* isparta ignore next  */
     function _init() {
       _handleRoutingErrors();
       _updateDocTitle();
     }
 
+    /* isparta ignore next  */
     function _handleRoutingErrors() {
       // Route cancellation:
       // On routing error, go to the specific page.
@@ -60,6 +62,7 @@ class RouterHelperProvider {
       );
     }
 
+    /* isparta ignore next  */
     function _updateDocTitle() {
       $rootScope.$on('$stateChangeSuccess',
         (event, toState, toParams, fromState, fromParams) => {
@@ -76,6 +79,7 @@ class RouterHelperProvider {
           Object.assign(state.config.resolve || {}, config.resolveAlways);
         $stateProvider.state(state.state, state.config);
       });
+      /* istanbul ignore if  */
       if (otherwisePath && !hasOtherwise) {
         hasOtherwise = true;
         $urlRouterProvider.otherwise(otherwisePath);
