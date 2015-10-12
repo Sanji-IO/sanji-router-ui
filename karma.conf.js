@@ -7,13 +7,14 @@ var test = process.env.NODE_ENV === 'test';
 module.exports = function(config) {
   config.set({
     plugins: [
-      'karma-phantomjs2-launcher',
+      'karma-phantomjs-launcher',
       'karma-chai-plugins',
       'karma-mocha',
       'karma-sourcemap-loader',
       'karma-webpack',
       'karma-coverage',
-      'karma-mocha-reporter'
+      'karma-mocha-reporter',
+      'karma-es6-shim'
     ],
 
     autoWatch: test,
@@ -30,12 +31,11 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'chai'],
+    frameworks: ['mocha', 'chai', 'es6-shim' ],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'node_modules/es6-shim/es6-shim.js',
       'app/app.test.js'
     ],
 
@@ -89,7 +89,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS2'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
