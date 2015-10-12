@@ -1,6 +1,6 @@
 # sanji-router-ui
 > Sanji router service is part of Sanji UI framework and also it is a angular
-module. It just a router wrapper for setup client router.
+module. It is just a ui-router wrapper for setup client router.
 
 [sanji-router-ui-icon]: https://nodei.co/npm/sanji-router-ui.png?downloads=true
 [sanji-router-ui-url]: https://npmjs.org/package/sanji-router-ui
@@ -33,6 +33,7 @@ module. It just a router wrapper for setup client router.
 
 ## Dependencies
 - [angularjs](https://github.com/angular/angular.js)
+- [angular-ui-router](https://github.com/angular-ui/ui-router)
 - [sanji-logger-ui](https://github.com/Sanji-IO/sanji-logger-ui)
 
 ## Installation
@@ -45,18 +46,22 @@ npm install sanji-router-ui --save
 ## How to use
 You need to include module first.
 ```javascript
-angular.module('webapp', ['sanji.router'])
+let app = angular.module('webapp', ['sanji.router'])
 ```
 and then use `router` as DI service.
 ```javascript
-class AppController {
-  constructor(router) {
-    router.on('connect', () => {
-      console.info('connected');
-    });
-  }
-}
-AppController.$inject = ['router'];
+app.run(routerHelper => {
+  routerHelper.configureStates([{
+    state: 'dashboard',
+    config: {
+        url: '/',
+        templateUrl: 'app/dashboard/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'vm',
+        title: 'dashboard'
+    }
+  }]);
+});
 ```
 
 ## References
@@ -69,5 +74,5 @@ Author: Zack Yang &copy; 2015
 * [@zack9433](https://twitter.com/zack9433)
 
 Support: if you find any problems with this library,
-[open issue](https://github.com/Sanji-IO/sanji-socket-ui/issues) on Github
+[open issue](https://github.com/Sanji-IO/sanji-router-ui/issues) on Github
 
