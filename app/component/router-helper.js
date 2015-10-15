@@ -1,6 +1,6 @@
 /* Help configure the state-base ui.router */
 
-const $inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
+const $inject = ['$stateProvider', '$urlRouterProvider'];
 class RouterHelperProvider {
   constructor(...injects) {
     RouterHelperProvider.$inject.forEach((item, index) => this[item] = injects[index]);
@@ -10,7 +10,6 @@ class RouterHelperProvider {
       resolveAlways: {}
     };
 
-    this.$locationProvider.html5Mode(true);
     this.configure = cfg => Object.assign(this.config, cfg);
   }
 
