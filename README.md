@@ -1,6 +1,6 @@
 # sanji-router-ui
 > Sanji router service is part of Sanji UI framework and also it is a angular
-module. It is just a ui-router wrapper for setup client router.
+module. It is just a ui-router wrapper and help configure the state-base ui.router.
 
 [sanji-router-ui-icon]: https://nodei.co/npm/sanji-router-ui.png?downloads=true
 [sanji-router-ui-url]: https://npmjs.org/package/sanji-router-ui

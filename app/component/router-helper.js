@@ -1,5 +1,3 @@
-/* Help configure the state-base ui.router */
-
 const $inject = ['$stateProvider', '$urlRouterProvider'];
 class RouterHelperProvider {
   constructor(...injects) {
