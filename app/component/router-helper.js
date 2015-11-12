@@ -50,10 +50,8 @@ class RouterHelperProvider {
           let destination = (toState &&
             (toState.title || toState.name || toState.loadedTemplateUrl)) ||
             'unknown target';
-          let msg = 'Error routing to ' + destination + '. ' +
-            (error.data || '') + '. <br/>' + (error.statusText || '') +
-            ': ' + (error.status || '');
-          logger.warn(msg, [toState]);
+          let msg = 'Error routing to ' + destination + '. ' + error;
+          logger.error(msg, [toState]);
           $location.path(config.defaultRoute);
         }
       );
