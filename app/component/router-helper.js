@@ -12,6 +12,7 @@ class RouterHelperProvider {
   }
 
   $get($location, $rootScope, $state, logger) {
+    'ngInject';
     let $stateProvider = this.$stateProvider;
     let $urlRouterProvider = this.$urlRouterProvider;
     let config = this.config;
