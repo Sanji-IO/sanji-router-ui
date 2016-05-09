@@ -41,32 +41,29 @@ class RouterHelperProvider {
     function _handleRoutingErrors() {
       // Route cancellation:
       // On routing error, go to the specific page.
-      $rootScope.$on('$stateChangeError',
-        (event, toState, toParams, fromState, fromParams, error) => {
-          if (handlingStateChangeError) {
-            return;
-          }
-          stateCounts.errors++;
-          handlingStateChangeError = true;
-          let destination = (toState &&
-            (toState.title || toState.name || toState.loadedTemplateUrl)) ||
-            'unknown target';
-          let msg = 'Error routing to ' + destination + '. ' + error;
-          logger.error(msg, [toState]);
-          $location.path(config.defaultRoute);
+      $rootScope.$on('$stateChangeError', (event, toState, toParams, fromState, fromParams, error) => {
+        if (handlingStateChangeError) {
+          return;
         }
-      );
+        stateCounts.errors++;
+        handlingStateChangeError = true;
+        let destination = (toState &&
+          (toState.title || toState.name || toState.loadedTemplateUrl)) ||
+          'unknown target';
+        let msg = `Error routing to ${destination}. ${error}`;
+        logger.error(msg, [toState]);
+        $location.path(config.defaultRoute);
+      });
     }
 
     /* isparta ignore next  */
     function _updateDocTitle() {
-      $rootScope.$on('$stateChangeSuccess',
-        (event, toState, toParams, fromState, fromParams) => {
-          stateCounts.changes++;
-          handlingStateChangeError = false;
-          let title = config.docTitle + ' ' + (toState.title || '');
-          $rootScope.title = title; // data bind to <title>
-        });
+      $rootScope.$on('$stateChangeSuccess', (event, toState) => {
+        stateCounts.changes++;
+        handlingStateChangeError = false;
+        let title = config.docTitle + ' ' + (toState.title || '');
+        $rootScope.title = title; // data bind to <title>
+      });
     }
 
     function configureStates(states, otherwisePath) {
@@ -83,7 +80,7 @@ class RouterHelperProvider {
     }
 
     function getStates() {
-     return $state.get();
+      return $state.get();
     }
   }
 }
