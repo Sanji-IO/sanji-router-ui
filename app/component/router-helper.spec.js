@@ -1,7 +1,7 @@
 import routerModule from './index' ;
 
 let routerHelperProvider;
-let $window, $location, $rootScope, $state, logger, routerHelper;
+let $location, $rootScope, $state, logger, routerHelper;
 
 describe('Provider: routerHelper', function() {
   beforeEach(angular.mock.module(routerModule));
@@ -13,8 +13,7 @@ describe('Provider: routerHelper', function() {
   });
 
   beforeEach(function() {
-    angular.mock.inject(function(_$window_, _$location_, _$rootScope_, _$state_, _logger_, _routerHelper_) {
-      $window = _$window_;
+    angular.mock.inject(function(_$location_, _$rootScope_, _$state_, _logger_, _routerHelper_) {
       $location = _$location_;
       $rootScope = _$rootScope_;
       $state = _$state_;

@@ -1,6 +1,5 @@
 'use strict';
 
-require('babel/register')({
-  optional: ['runtime'],
-  ignore: /node_modules\/(?!sanji-logger-ui|angular-ui-router)/
+require('babel-core/register')({
+  ignore: /node_modules/
 });
