@@ -1,10 +1,13 @@
-import routerModule from './index' ;
+import angular from 'angular';
+import 'angular-mocks';
+
+import {sjRouter} from './index' ;
 
 let routerHelperProvider;
 let $location, $rootScope, $state, logger, routerHelper;
 
 describe('Provider: routerHelper', function() {
-  beforeEach(angular.mock.module(routerModule));
+  beforeEach(angular.mock.module(sjRouter));
 
   beforeEach(function() {
     angular.mock.module(function(_routerHelperProvider_) {

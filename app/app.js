@@ -1,5 +1,9 @@
 import './app.scss';
 import angular from 'angular';
-import component from './component';
+import {sjRouter} from './component';
 
-angular.module('webapp', [component]);
+angular.module('webapp', [sjRouter]);
+
+angular.element(document).ready(() => {
+  angular.bootstrap(document.body, ['webapp']);
+});
