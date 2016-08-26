@@ -2,6 +2,7 @@
 
 var path = require('path');
 var webpack = require('webpack');
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 var LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 var NODE_ENV = process.env.NODE_ENV;
 var nodeRoot = path.join(__dirname, 'node_modules');
@@ -32,6 +33,7 @@ var config = {
     noParse: []
   },
   plugins: [
+    new ProgressBarPlugin(),
     new LodashModuleReplacementPlugin,
     new webpack.DefinePlugin({
       __TEST__: 'test' === NODE_ENV,
