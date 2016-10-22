@@ -41,6 +41,7 @@ config.plugins.push(
     quiet: true
   }),
   new webpack.optimize.UglifyJsPlugin({
+    sourceMap: true,
     compress: {
       screw_ie8: true,
       warnings: false,

@@ -22,8 +22,7 @@ const config = {
       { test: /\.js$/, loader: 'eslint', exclude: /node_modules/, enforce: 'pre' },
       {test: /\.js$/, loader: 'babel?cacheDirectory', exclude: /(node_modules)/},
       { test: /\.html$/, loader: 'ng-cache?prefix=[dir]/[dir]', exclude: [/node_modules/, path.join(__dirname, '/app/index.html')] }
-    ],
-    noParse: []
+    ]
   },
   plugins: [
     new ProgressBarPlugin(),
