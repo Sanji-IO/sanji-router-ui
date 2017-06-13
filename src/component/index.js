@@ -1,10 +1,9 @@
 import angular from 'angular';
-import uiRouter from 'angular-ui-router';
-import {sjLogger} from 'sanji-logger-ui';
+import uiRouter from '@uirouter/angularjs';
+import { sjLogger } from 'sanji-logger-ui';
 
 import RouterHelperProvider from './router-helper';
 
-const sjRouter = angular.module('sanji.router', [uiRouter, sjLogger])
-  .provider('routerHelper', RouterHelperProvider)
+const sjRouter = angular.module('sanji.router', [uiRouter, sjLogger]).provider('routerHelper', RouterHelperProvider)
   .name;
-export {sjRouter};
+export { sjRouter };
