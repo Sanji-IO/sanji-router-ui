@@ -48,7 +48,7 @@
   "homepage": "https://github.com/Sanji-IO/sanji-router-ui",
   "dependencies": {
     "angular": "~1.5.0",
-    "angular-ui-router": "^1.0.0-beta.3",
+    "@uirouter/angularjs": "~1.0.4",
     "sanji-logger-ui": "~1.2.9"
   }
 }
